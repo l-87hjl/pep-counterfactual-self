@@ -1,0 +1,64 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  line-height: 1.3;
+}
+
+form {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: 500;
+}
+
+small.help {
+  display: block;
+  color: #555;
+  margin-top: 0.25rem;
+}
+
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+.disclaimer {
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
+  background: #f7f7f7;
+  padding: 1rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.75rem;
+  }
+}
