@@ -1,0 +1,66 @@
+{
+  "id": "jr-2026-02-voz-001",
+  "timestamp": "2026-02-10T18:40:00Z",
+
+  "context": {
+    "description": "Considering accepting a leadership role that increases influence and compensation but substantially reduces day-to-day autonomy.",
+    "domain": ["career", "identity"],
+    "constraints": ["time-limited offer", "organizational politics", "long-term visibility"]
+  },
+
+  "decision": {
+    "chosen": "defer decision",
+    "alternatives": ["accept role", "decline role", "accept with negotiated conditions"]
+  },
+
+  "rationale": {
+    "justification": "The tradeoff feels different from prior role changes because the loss of autonomy appears structural rather than temporary. I am not yet clear how this would change who I become in practice.",
+    "dominant_considerations": ["autonomy", "integrity", "growth"],
+    "rejected_reasons": {
+      "accept role": "Increased influence may not compensate for ongoing political overhead.",
+      "decline role": "The opportunity could expand long-term impact in ways I do value."
+    }
+  },
+
+  "affective_signal": {
+    "confidence": 0.45,
+    "doubt": 0.7,
+    "regret_immediate": 0.0
+  },
+
+  "time_horizon": "long-term",
+
+  "counterfactuals": [
+    {
+      "condition": "If the role preserved more control over time and agenda",
+      "would_have_chosen": "accept with negotiated conditions"
+    },
+    {
+      "condition": "If similar past roles had not led to lingering dissatisfaction",
+      "would_have_chosen": "accept role"
+    }
+  ],
+
+  "shard_activations": [
+    {
+      "shard": "autonomy",
+      "activation_strength": "high",
+      "role": "dominant",
+      "notes": "Loss appears identity-level rather than tactical."
+    },
+    {
+      "shard": "growth",
+      "activation_strength": "moderate",
+      "role": "conflicting",
+      "notes": "Leadership expansion is appealing but not clearly aligned."
+    },
+    {
+      "shard": "integrity",
+      "activation_strength": "moderate",
+      "role": "supporting",
+      "notes": "Concern about gradual compromise through political tradeoffs."
+    }
+  ],
+
+  "post_hoc_reflection": "This decision was intentionally deferred to allow more reflection, not avoided due to indecision."
+}
