@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PEP — Judgment Capture</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -25,30 +26,37 @@
     <fieldset>
       <legend>Context</legend>
       <label>Description</label>
+      <small class="help">Briefly describe the situation as you understand it now. One or two short paragraphs is usually enough.</small>
       <textarea name="context_description" required></textarea>
 
       <label>Domain tags (comma-separated)</label>
+      <small class="help">Optional. Use broad labels (e.g., career, relationships, ethics).</small>
       <input type="text" name="domain" />
 
       <label>Constraints</label>
+      <small class="help">Optional. Note time pressure, obligations, or limits you can’t change.</small>
       <input type="text" name="constraints" />
     </fieldset>
 
     <fieldset>
       <legend>Decision</legend>
       <label>Options considered (comma-separated)</label>
+      <small class="help">List the real options you see, even if some feel unlikely.</small>
       <input type="text" name="options" required />
 
       <label>Option chosen</label>
+      <small class="help">What you are leaning toward or have decided, for now.</small>
       <input type="text" name="chosen" required />
     </fieldset>
 
     <fieldset>
       <legend>Rationale</legend>
       <label>Justification</label>
+      <small class="help">Explain why this option feels acceptable. A few sentences is usually sufficient.</small>
       <textarea name="justification" required></textarea>
 
       <label>Time horizon</label>
+      <small class="help">Which timeframe matters most for this judgment?</small>
       <select name="time_horizon" required>
         <option value="">Select</option>
         <option value="short">Short</option>
@@ -58,7 +66,9 @@
     </fieldset>
 
     <fieldset>
-      <legend>Affective Signals (expressive, not empirical)</legend>
+      <legend>Affective Signals</legend>
+      <small class="help">These numbers are expressive, not scientific. Use your own sense of proportion.</small>
+
       <label>Confidence (0–1)</label>
       <input type="number" step="0.01" min="0" max="1" name="confidence" required />
 
