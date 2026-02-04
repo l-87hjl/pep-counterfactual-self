@@ -66,8 +66,10 @@ Nothing should be removed from this list without a written justification.
 - ✔ Static HTML form for judgment capture
 - ✔ Client-side only (no storage, no network)
 - ✔ Outputs downloadable artifacts only
-- ☐ Explicit statement: no analysis or synthesis
-- ☐ No VOZ, similarity, or advice surfaced
+- ✔ Explicit statement: no analysis or synthesis
+- ☐ ZIP exporter (multiple artifacts, README included)
+- ☐ Shard capture fields (recording only, no inference)
+- ☐ Explicit prohibition on synthesis, similarity, or VOZ
 
 ---
 
