@@ -14,6 +14,9 @@ import os
 import sys
 from datetime import datetime
 
+from engine.similarity import find_similar
+from engine.voz import detect_voz
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_DIR = os.path.join(BASE_DIR, "logs", "judgment_log")
 
@@ -26,16 +29,23 @@ def prompt_required(text):
         print("This field is required.")
 
 
-def prompt_optional(text):
-    return input(f"{text} (optional)\n> ").strip()
+def prompt_float(text):
+    while True:
+        try:
+            value = float(prompt_required(text))
+            if 0.0 <= value <= 1.0:
+                return value
+        except ValueError:
+            pass
+        print("Enter a number between 0 and 1.")
 
 
 def pep_new():
     print("Creating new judgment record. All responses require deliberate input.\n")
 
     context_description = prompt_required("Describe the situation as you understand it")
-    domain = prompt_optional("Domain tags (comma-separated)")
-    constraints = prompt_optional("Constraints")
+    domain = prompt_required("Domain tags (comma-separated)")
+    constraints = prompt_required("Constraints")
 
     options_raw = prompt_required("Options considered (comma-separated)")
     options = [o.strip() for o in options_raw.split(',') if o.strip()]
@@ -48,9 +58,9 @@ def pep_new():
     justification = prompt_required("Rationale / justification")
     time_horizon = prompt_required("Time horizon (short / medium / long)")
 
-    confidence = prompt_required("Confidence (0–1)")
-    doubt = prompt_required("Doubt (0–1)")
-    regret = prompt_required("Immediate regret (0–1)")
+    confidence = prompt_float("Confidence (0–1)")
+    doubt = prompt_float("Doubt (0–1)")
+    regret = prompt_float("Immediate regret (0–1)")
 
     record_id = f"jr-{datetime.utcnow().strftime('%Y-%m-%dT%H-%M-%S')}"
 
@@ -59,7 +69,7 @@ def pep_new():
         "timestamp": datetime.utcnow().isoformat() + "Z",
         "context": {
             "description": context_description,
-            "domain": domain,
+            "domain": [d.strip() for d in domain.split(',')],
             "constraints": constraints
         },
         "decision": {
@@ -89,16 +99,29 @@ def pep_synthesize():
     print("Synthesis is descriptive only. No recommendations will be made.\n")
     query = prompt_required("Describe the situation you want to reflect on")
 
-    print("\n[Contextual Notes]")
-    print("- Similarity and VOZ detection not yet implemented.")
-    print("- This section will surface descriptive instability signals when applicable.")
-    print("\nThis note is descriptive only and does not imply any particular outcome.")
+    similar = find_similar(query)
+
+    if similar:
+        print("Precedent Summary:")
+        for rec, reasons in similar:
+            print(f"- {rec.get('id')}: {', '.join(reasons)}")
+        print("")
+
+    voz_signals = detect_voz({"rationale": {"justification": query}}, similar)
+
+    if voz_signals:
+        print("Contextual Notes:")
+        for s in voz_signals:
+            print(f"- {s}")
+        print("\nThis note is descriptive only and does not imply any particular outcome.\n")
+
+    print("Plausible judgments are intentionally not generated at this stage.")
 
 
 def pep_regret(judgment_id):
     print(f"Adding regret reflection for {judgment_id}\n")
 
-    regret_level = prompt_required("Regret level (0–1)")
+    regret_level = prompt_float("Regret level (0–1)")
     reflection = prompt_required("What was misjudged?")
     signal = prompt_required("What signal was ignored?")
     future = prompt_required("What would you attend to next time?")
