@@ -18,111 +18,67 @@ Nothing should be removed from this list without a written justification.
 
 ---
 
-## Phase 1 — Core Implementations (In Progress)
+## Phase 1 — Prerequisites (Must Exist Before Any Functionality)
 
-### CLI-Based Flow
+- ✔ README.md with clear non-goals
+- ✔ MANIFEST.md epistemic commitments
+- ✔ SQL schema finalized
+- ✔ Shard lifecycle rules defined
+- ✔ Failure modes documented
+- ✔ Value Override Zone (VOZ) spec locked
+- ✔ VOZ signals and CLI rendering rules locked
 
-- ☐ `pep new` — create judgment records with required justification
-- ☐ `pep synthesize` — read-only synthesis with uncertainty flags
-- ☐ `pep regret` — append-only regret updates
-- ☐ `pep shards` — read-only shard inspection
+---
+
+## Phase 2 — Critical Milestones (Gate Functional Code)
+
+The following **must be completed in order** before PEP is considered functional.
+
+### Milestone A — Judgment Fixtures (Required First)
+
+- ☐ Baseline fixture (clean judgment)
+- ☐ Ambiguous fixture (unresolved tension)
+- ☐ VOZ-triggering fixture (instability without override)
+- ☐ Regret-bearing fixture (known bad judgment)
+
+No code should be trusted without fixtures.
+
+---
+
+### Milestone B — Similarity Logic (Stub)
+
+- ☐ Explicit similarity rules implemented
+- ☐ Similarity explanations surfaced
+- ☐ Novelty / sparsity flags supported
+
+Embeddings are explicitly deferred.
+
+---
+
+### Milestone C — CLI Skeleton
+
+- ☐ `pep new`
+- ☐ `pep synthesize`
+- ☐ `pep regret`
+- ☐ `pep shards`
 
 Constraints:
-- No defaults
 - No advice language
-- No auto-activation of shards
+- No defaults
+- No auto-activation
+- Must respect VOZ rendering rules
 
 ---
 
-### Judgment Fixtures
+## Phase 3 — Guarded Future Work
 
-- ☐ Fixture: Autonomy vs Pay (clean, confident)
-- ☐ Fixture: Growth vs Stability (ambiguous, conflicted)
-- ☐ Fixture: Known bad judgment (anticipates regret)
-
-Fixtures must:
-- Feel human
-- Include counterfactuals
-- Preserve doubt and tension
-
----
-
-### Failure Modes Documentation
-
-- ☐ Authority Creep
-- ☐ Moral Laundering
-- ☐ Self-Reinforcing Bias
-- ☐ Quantification Drift
-- ☐ Identity Freeze
-- ☐ Epistemic Laziness
-
-Each failure mode must include:
-- How it sneaks in
-- Warning signs
-- Why it is dangerous *here*
-- What PEP refuses to optimize
-
----
-
-### Language Lint (Synthesis Output)
-
-Forbidden language:
-- should
-- recommend
-- optimal
-- best choice
-- must
-- decide
-
-Required language:
-- historically
-- in similar cases
-- plausible
-- limited precedent
-- uncertain
-
-Goal:
-Prevent authority creep via tone.
-
----
-
-### Similarity Engine (Stub Only)
-
-Allowed signals:
-- Domain overlap
-- Shared shard activations
-- Constraint keyword overlap
-- Time horizon match
-
-Explicitly deferred:
-- Embeddings
-- Learned weights
-- Semantic similarity via LLMs
-
----
-
-## Phase 2 — Conceptual (Design Before Code)
-
-### Value Override Zones (Important)
-
-- ☐ Identify patterns where defaults historically break
-- ☐ Surface *possibility* of override without predicting it
-- ☐ Explicitly flag low-confidence, high-meaning contexts
-
-Key rule:
-The system may *highlight risk of override*, never predict it.
-
----
-
-## Phase 3 — Guarded Future Work (Do Not Rush)
-
-- ☐ Embeddings (only after failure modes are tested)
-- ☐ UI (only after CLI resistance is validated)
+- ☐ Embeddings (only after misuse testing)
+- ☐ UI (only after CLI resistance validated)
 - ☐ Visualization (must not imply certainty)
 
 ---
 
-## Stop Conditions
+## Stop Conditions (Hard)
 
 Do NOT proceed if:
 - Outputs feel convenient to obey
