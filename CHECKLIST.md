@@ -61,9 +61,17 @@ Nothing should be removed from this list without a written justification.
 
 ---
 
-## Phase 3 — Optional, Guarded Enhancements
+## Phase 2.5 — Web Capture Interface (Optional, Non-Synthesizing)
 
-These are explicitly **non-required** and must not increase authority.
+- ✔ Static HTML form for judgment capture
+- ✔ Client-side only (no storage, no network)
+- ✔ Outputs downloadable artifacts only
+- ☐ Explicit statement: no analysis or synthesis
+- ☐ No VOZ, similarity, or advice surfaced
+
+---
+
+## Phase 3 — Optional, Guarded Enhancements
 
 ### VOZ Enhancements (Optional)
 
